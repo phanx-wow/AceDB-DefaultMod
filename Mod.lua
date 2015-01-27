@@ -3,6 +3,11 @@ Causes AceDB-3.0 to default to the account-wide "Default" profile
 instead of a character-specific profile for addons which do not specify.
 ----------------------------------------------------------------------]]
 
+local exceptions = {
+	["CliqueDB3"] = true, -- Clique bindings
+	["MogItWishlist"] = true, -- MogIt wishlist
+}
+
 local patched = {}
 
 local function GetDB(self, svar)
@@ -28,7 +33,7 @@ f:SetScript("OnEvent", function()
 
 	local New = AceDB.New
 	function AceDB:New(tbl, defaults, defaultProfile)
-		if type(defaultProfile) == "nil" then
+		if type(defaultProfile) == "nil" and not exceptions[tbl] then
 			--print("AceDB", MINOR, "New called with nil defaultProfile for", tostring(tbl))
 			defaultProfile = true
 		end
