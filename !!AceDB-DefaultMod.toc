@@ -1,4 +1,4 @@
-## Interface: 60100
+## Interface: 70000
 ## Notes: Default to a shared profile instead of per-character profiles.
 
 Mod.lua
