@@ -1,4 +1,4 @@
-## Interface: 70100
+## Interface: 70300
 ## Notes: Default to a shared profile instead of per-character profiles.
 
 Mod.lua
